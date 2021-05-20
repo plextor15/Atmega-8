@@ -1,4 +1,4 @@
-$sim
+'$sim
 $regfile = "m8def.dat"
 $crystal = 1000000
 
@@ -10,21 +10,26 @@ Config Pinb.1 = Input
 Lewo Alias Pinb.0
 Prawo Alias Pinb.1
 
-Declare Sub wLewo()
-Declare Sub wPrawo()
-Declare Sub awaryjne()
+Declare Sub wLewo
+Declare Sub wPrawo
+Declare Sub awaryjne
 
 
-
+set portb.0
+set portb.1
 
 Do
 
 If Lewo = 0 Then
+ If Prawo = 1 Then
    Call wLewo
+ End If
 End If
 
 If Prawo = 0 Then
+ If Lewo = 1 Then
    Call wPrawo
+ End If
 End If
 
 'awaryjne'
@@ -55,21 +60,21 @@ End Sub
 
 Sub wLewo
 Portd = &B11111110
-Waitms 200
+Waitms 400
 Portd = &B11111100
-Waitms 200
+Waitms 400
 Portd = &B11111000
-Waitms 200
+Waitms 400
 Portd = &B11110000
-Waitms 200
+Waitms 400
 Portd = &B11100000
-Waitms 200
+Waitms 400
 Portd = &B11000000
-Waitms 200
+Waitms 400
 Portd = &B10000000
-Waitms 200
+Waitms 400
 Portd = &B00000000
-Waitms 200
+Waitms 400
 
 Portd = &B11111111
 End Sub
@@ -77,21 +82,21 @@ End Sub
 
 Sub wPrawo
 PortD = &B01111111
-Waitms 200
+Waitms 400
 PortD = &B00111111
-Waitms 200
+Waitms 400
 PortD = &B00011111
-Waitms 200
+Waitms 400
 PortD = &B00001111
-Waitms 200
+Waitms 400
 PortD = &B00000111
-Waitms 200
+Waitms 400
 PortD = &B00000011
-Waitms 200
+Waitms 400
 PortD = &B00000001
-Waitms 200
+Waitms 400
 PortD = &B00000000
-Waitms 200
+Waitms 400
 
 Portd = &B11111111
 End Sub
